@@ -17,8 +17,20 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
+    # Check the given paramters are valid
+    if (a <= 1 or b <= 1 or c <= 1):
+        raise TriangleError('Not a valid triangle')
+
+    if (not((a + b > c) and (a + c > b) and (b + c > a))):
+        raise TriangleError('Just a line no valid triangle')
+
     # DELETE 'PASS' AND WRITE THIS CODE
-    pass
+    if (a == b and a == c):
+        return 'equilateral'
+    elif (a == b or b == c or c == a):
+        return 'isosceles'
+    else:
+        return 'scalene'
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(Exception):
